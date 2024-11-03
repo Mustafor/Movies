@@ -5,7 +5,7 @@ import { Pagination } from '@mui/material'
 
 function MoviePage({URL}) {
   const [data, setData] = useState([])
-  const [totalPage, setTotalPage] = useState(null)
+  const [totalPage, setTotalPage] = useState(10)
   const [page, setPage] = useState(1)
 
   useEffect(() => {

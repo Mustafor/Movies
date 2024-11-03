@@ -12,30 +12,31 @@ import { PATH } from '../hook/usePath';
 import { Context } from '../context/Context';
 
 const navItems = [
-    {
-        id:1,
-        title:"Now Playing",
-        to: PATH.home
-    },
-    {
-        id:2,
-        title:"Popular",
-        to: PATH.popular
-    },
-    {
-        id:3,
-        title:"Top Rated",
-        to: PATH.topRated
-    },
-    {
-        id:4,
-        title:"Upcomming",
-        to: PATH.upcoming
-    },
+  {
+    id: 1,
+    title: "Now Playing",
+    to: PATH.home
+  },
+  {
+    id: 2,
+    title: "Popular",
+    to: PATH.popular
+  },
+  {
+    id: 3,
+    title: "Top Rated",
+    to: PATH.topRated
+  },
+  {
+    id: 4,
+    title: "Upcomming",
+    to: PATH.upcoming
+  },
 ]
 
 function Navbar() {
-    const {likedList, setLikedList} = React.useContext(Context)
+  const { likedList, setLikedList } = React.useContext(Context)
+  console.log(likedList);
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -52,21 +53,21 @@ function Navbar() {
             {navItems.map((item) => (
               <Button key={item.id} sx={{ color: '#fff' }}>
                 <NavLink to={item.to} key={item.id}>
-                    {item.title}
+                  {item.title}
                 </NavLink>
               </Button>
             ))}
           </Box>
-          <Box sx={{display:"flex", gap:"20px", marginLeft:"30px"}}>
-            <Button variant='outlined' sx={{borderRadius:"50%", borderColor:"white"}}>
-                <Badge showZero badgeContent={likedList.lenght} color='error'>
-                <FavoriteIcon sx={{color:"white"}}/>
-                </Badge>
+          <Box sx={{ display: "flex", gap: "20px", marginLeft: "30px" }}>
+            <Button variant='outlined' sx={{ borderRadius: "50%", borderColor: "white" }}>
+              <Badge showZero badgeContent={likedList.length} color='error'>
+                <FavoriteIcon sx={{ color: "white" }} />
+              </Badge>
             </Button>
-            <Button variant='outlined' sx={{borderRadius:"50%", borderColor:"white"}}>
-                <Badge showZero badgeContent={0} color='primary'>
-                <BookmarkIcon sx={{color:"white"}}/>
-                </Badge>
+            <Button variant='outlined' sx={{ borderRadius: "50%", borderColor: "white" }}>
+              <Badge showZero badgeContent={0} color='primary'>
+                <BookmarkIcon sx={{ color: "white" }} />
+              </Badge>
             </Button>
           </Box>
         </Toolbar>
