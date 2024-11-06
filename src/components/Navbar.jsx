@@ -1,15 +1,15 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { NavLink } from 'react-router-dom';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import BookmarkIcon from '@mui/icons-material/Bookmark';
-import { Badge } from '@mui/material';
-import { PATH } from '../hook/usePath';
-import { Context } from '../context/Context';
+import * as React from 'react'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import { NavLink } from 'react-router-dom'
+import FavoriteIcon from '@mui/icons-material/Favorite'
+import BookmarkIcon from '@mui/icons-material/Bookmark'
+import { Badge } from '@mui/material'
+import { PATH } from '../hook/usePath'
+import { Context } from '../context/Context'
 
 const navItems = [
   {
@@ -35,8 +35,7 @@ const navItems = [
 ]
 
 function Navbar() {
-  const { likedList, setLikedList } = React.useContext(Context)
-  console.log(likedList);
+  const { likedList, savedList } = React.useContext(Context)
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -65,7 +64,7 @@ function Navbar() {
               </Badge>
             </Button>
             <Button variant='outlined' sx={{ borderRadius: "50%", borderColor: "white" }}>
-              <Badge showZero badgeContent={0} color='primary'>
+              <Badge showZero badgeContent={savedList.length} color='primary'>
                 <BookmarkIcon sx={{ color: "white" }} />
               </Badge>
             </Button>

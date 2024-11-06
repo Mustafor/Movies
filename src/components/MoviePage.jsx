@@ -11,8 +11,8 @@ function MoviePage({URL}) {
   useEffect(() => {
     useAxios().get(`${URL}?language=en-US&page=${page}`).then(res => {
       setData(res.data.results.map(item => {
-        item.isLiked = false
-        item.isSaved = false
+        item.isLiked = 0
+        item.isSaved = 0
         return item
       }))
       setTotalPage(res.data.total_pages)
